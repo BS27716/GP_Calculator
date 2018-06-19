@@ -1,0 +1,128 @@
+.body
+{
+    background-color: white;
+}
+
+.calculator
+{
+    background-color: lightgray;
+    width: 350px;
+    height: 500px;
+    border: 50px black;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 15px;
+    display: block;
+    box-shadow: 7px 7px 5px rgb(0, 90, 0);
+}
+
+.header
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+}
+
+.logo
+{
+    width: 4%;
+    height: auto;
+}
+
+.buttonstyle
+{
+    font-size: 30px;
+    color: black;
+    width: 75px;
+    height: 75px;
+    padding: 2px;
+    margin: 2px; 
+    text-align: center;
+    border-style: solid;
+    border-radius: 5px;
+}
+
+.features
+{
+    display: inline-block, flex;
+    justify-content: center;
+}
+
+.subfeat
+{
+    display: flex;
+    justify-content: center;
+}
+
+.extras
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 40%;
+    color: black;
+    height: 50%;
+}
+
+.number
+{
+    background-color: greenyellow;
+}
+
+.operator
+{
+    background-color: green;
+}
+
+.calcubox
+{
+    display: flex;
+    width: 90%;
+    height: 15%;
+    justify-content: space-between;
+    align-items: row;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 175%;
+    background-color: greenyellow;
+    border-style: groove;
+    border: 20px, black;
+}
+
+.calcubox2
+{
+    height: 50%;
+    font-size: 100%;
+    color: black;
+}
+
+.memory
+{
+    display: inline-block;
+    font-size: 50%;
+}
+
+.operatortext
+{
+    display: inline-block;
+    font-size: 50%;
+}
+
+.opcount
+{
+    display: inline-block;
+    font-size: 50%;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="shortcut icon" type="image/jpg" href="C:\Users\B$hip\Desktop\PGH\BShip_Portfolio\calculator\GP_logo_official.jpg">
+        <title>
+            GP Calculations
+        </title>
+        <link rel="stylesheet" href="C:\Users\B$hip\Desktop\PGH\BShip_Portfolio\calculator\GP_Calculator.css">
+        <script type="text/javascript" src="C:\Users\B$hip\Desktop\PGH\BShip_Portfolio\calculator\GP_Calculator.js">
+        </script>
+    </head>
+    <body>
+        <div class="header" id="header">
+            <img src="C:\Users\B$hip\Desktop\PGH\BShip_Portfolio\calculator\gplogosuperofficial.jpg" class="logo"><strong class="heading">CALCULATOR</strong>
+            <sub>by Brandon Shipman</sub>
+        </div>
+        <div class="calculator" id="calculator">
+            <div class="calcubox" id="calcbox"> 
+                <div type="text" class="calcubox2" id="calcbox2">
+                    0
+                </div>           
+                <div class="extras" id="extras">
+                    Memory:<div type="text" class="memory" id="memory">0</div>
+                    Operator:<div type="text" class="operatortext" id="operator"></div>
+                    Count:<div type="text" class="opcount" id="opcount">0</div>
+                </div>                     
+            </div>
+            <br>
+            <div class="features" id="features">
+                <div class="subfeat">
+                    <button class="operator buttonstyle" onClick="C()">C</button>
+                    <button class="operator buttonstyle" onClick="one_over_x()">1/x</button>
+                    <button class="operator buttonstyle" onClick="sqrt()">&#8730</button>
+                    <button class="operator buttonstyle" onClick="ln()">ln</button>
+                    <!--<button class="operator buttonstyle" onClick="addinv()">+/-</button>-->
+                </div>
+                <div class="subfeat">
+                    <button class="number buttonstyle" onClick="type_in_box(1)" onkeypress="uniKeyCode(event)">1</button>
+                    <button class="number buttonstyle" onClick="type_in_box(2)" onkeypress="uniKeyCode(event)">2</button>
+                    <button class="number buttonstyle" onClick="type_in_box(3)" onkeypress="uniKeyCode(event)">3</button>
+                    <button class="operator buttonstyle" onClick="pressOp('+')" onkeypress="uniKeyCode(event)">+</button>
+                </div>
+                <div class="subfeat">
+                    <button class="number buttonstyle" onClick="type_in_box(4)" onkeypress="uniKeyCode(event)">4</button>
+                    <button class="number buttonstyle" onClick="type_in_box(5)" onkeypress="uniKeyCode(event)">5</button>
+                    <button class="number buttonstyle" onClick="type_in_box(6)" onkeypress="uniKeyCode(event)">6</button>
+                    <button class="operator buttonstyle" onClick="pressOp('-')" onkeypress="uniKeyCode(event)">-</button>
+                </div>
+                <div class="subfeat">
+                    <button class="number buttonstyle" onClick="type_in_box(7)" onkeypress="uniKeyCode(event)">7</button>
+                    <button class="number buttonstyle" onClick="type_in_box(8)" onkeypress="uniKeyCode(event)">8</button>
+                    <button class="number buttonstyle" onClick="type_in_box(9)" onkeypress="uniKeyCode(event)">9</button>
+                    <button class="operator buttonstyle" onClick="pressOp('x')" onkeypress="uniKeyCode(event)">x</button>
+                </div>
+                <div class="subfeat">
+                    <button class="operator buttonstyle" onClick="decimal()" onkeypress="uniKeyCode(event)">.</button>
+                    <button class="number buttonstyle" onClick="type_in_box(0)" onkeypress="uniKeyCode(event)">0</button>
+                    <button class="operator buttonstyle" onClick="equals()" onkeypress="uniKeyCode(event)">=</button>
+                    <button class="operator buttonstyle" onClick="pressOp('/')" onkeypress="uniKeyCode(event)">&#247</button>
+                </div>
+            </div>  
+        </div>    
+    </body>
+</html>
