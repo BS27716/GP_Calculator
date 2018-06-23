@@ -19,13 +19,14 @@
         </div>
         <div class="calculator" id="calculator">
             <div class="calcubox" id="calcbox"> 
+                <div type="text" class="express" id="express"></div>
                 <div type="text" class="calcubox2" id="calcbox2">
                     0
-                </div>           
+                </div>                
                 <div class="extras" id="extras">
-                    Memory:<div type="text" class="memory" id="memory">0</div>
-                    Operator:<div type="text" class="operatortext" id="operator"></div>
-                    Count:<div type="text" class="opcount" id="opcount">0</div>
+                    <div type="text" class="memory" id="memory">0</div>
+                    <div type="text" class="operatortext" id="operator"></div>
+                    <div type="text" class="opcount" id="opcount">0</div>
                 </div>                     
             </div>
             <br>
@@ -35,27 +36,31 @@
                     <button class="operator buttonstyle" onClick="one_over_x()">1/x</button>
                     <button class="operator buttonstyle" onClick="sqrt()">&#8730</button>
                     <button class="operator buttonstyle" onClick="ln()">ln</button>
-                    <!--<button class="operator buttonstyle" onClick="addinv()">+/-</button>-->
+                    <button class="operator buttonstyle" onClick="addinv()">+/-</button>
                 </div>
                 <div class="subfeat">
+                    <!--<button class="operator buttonstyle" onClick="x_to_the_y()">x^y</button>-->
                     <button class="number buttonstyle" onClick="type_in_box(1)" onkeypress="uniKeyCode(event)">1</button>
                     <button class="number buttonstyle" onClick="type_in_box(2)" onkeypress="uniKeyCode(event)">2</button>
                     <button class="number buttonstyle" onClick="type_in_box(3)" onkeypress="uniKeyCode(event)">3</button>
                     <button class="operator buttonstyle" onClick="pressOp('+')" onkeypress="uniKeyCode(event)">+</button>
                 </div>
                 <div class="subfeat">
+                    <!--<button class="operator buttonstyle" onClick="root_y_of_x()">x^(1/y)</button>-->
                     <button class="number buttonstyle" onClick="type_in_box(4)" onkeypress="uniKeyCode(event)">4</button>
                     <button class="number buttonstyle" onClick="type_in_box(5)" onkeypress="uniKeyCode(event)">5</button>
                     <button class="number buttonstyle" onClick="type_in_box(6)" onkeypress="uniKeyCode(event)">6</button>
                     <button class="operator buttonstyle" onClick="pressOp('-')" onkeypress="uniKeyCode(event)">-</button>
                 </div>
                 <div class="subfeat">
+                    <!--<button class="operator buttonstyle" onClick="type_in_box(pi)">pi</button>-->
                     <button class="number buttonstyle" onClick="type_in_box(7)" onkeypress="uniKeyCode(event)">7</button>
                     <button class="number buttonstyle" onClick="type_in_box(8)" onkeypress="uniKeyCode(event)">8</button>
                     <button class="number buttonstyle" onClick="type_in_box(9)" onkeypress="uniKeyCode(event)">9</button>
                     <button class="operator buttonstyle" onClick="pressOp('x')" onkeypress="uniKeyCode(event)">x</button>
                 </div>
                 <div class="subfeat">
+                    <!--<button class="operator buttonstyle" onClick="e_to_the_x()">e^x</button>-->
                     <button class="operator buttonstyle" onClick="decimal()" onkeypress="uniKeyCode(event)">.</button>
                     <button class="number buttonstyle" onClick="type_in_box(0)" onkeypress="uniKeyCode(event)">0</button>
                     <button class="operator buttonstyle" onClick="equals()" onkeypress="uniKeyCode(event)">=</button>

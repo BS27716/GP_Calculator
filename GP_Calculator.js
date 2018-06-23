@@ -8,7 +8,7 @@ function type_in_box(number)
         {
             document.getElementById("calcbox2").innerHTML += number;
         }
-        else if (document.getElementById("calcbox2").innerHTML == 0)
+        else if (document.getElementById("calcbox2").innerHTML == 0 && document.getElementById("calcbox2").innerHTML.includes('.') != true)
         {
             document.getElementById("calcbox2").innerHTML = number;
         }
@@ -23,13 +23,17 @@ function type_in_box(number)
         {
             document.getElementById("calcbox2").innerHTML = number;
         }
-        else if (document.getElementById("calcbox2").innerHTML == '0')
+        else if (document.getElementById("operator").innerHTML == orig_op)
         {
             document.getElementById("calcbox2").innerHTML = number;
         }
         else if (document.getElementById("calcbox2").innerHTML == '0.')
         {
             document.getElementById("calcbox2").innerHTML += number;
+        }
+        else if (document.getElementById("calcbox2").innerHTML == '0')
+        {
+            document.getElementById("calcbox2").innerHTML = number;
         }
         else
         {
@@ -40,9 +44,16 @@ function type_in_box(number)
 
 function pressOp(operator)
 {
+    if (document.getElementById("operator").innerHTML != orig_op)
+    {
+        equals();
+    }
+
     document.getElementById("memory").innerHTML = document.getElementById("calcbox2").innerHTML;
     document.getElementById("operator").innerHTML = operator;
-    opcount();                
+    /*document.getElementById("calcbox2").innerHTML = 0;*/
+    document.getElementById("express").innerHTML = document.getElementById("memory").innerHTML + '' + operator;
+    opcount();   
 }
 
 function DeciCount(num)
@@ -65,11 +76,10 @@ function equals()
 
     var b_dp = DeciCount(b);
     var a_dp = DeciCount(a);
-    var decix = 0;
+    var decix = null;
 
     if (operator == '+')
     {
-        results = a + b;
         if (b_dp > a_dp)
         {
             decix = b_dp;
@@ -78,14 +88,18 @@ function equals()
         {
             decix = a_dp;
         }
+        else if (b_dp == 0 && a_dp == 0)
+        {
+            /*decix remains null*/
+        }
         else
         {
             decix = b_dp;
         }
+        results = (a + b).toFixed(decix);
     }
     if (operator == '-')
     {
-        results = a - b;
         if (b_dp > a_dp)
         {
             decix = b_dp;
@@ -94,39 +108,40 @@ function equals()
         {
             decix = a_dp;
         }
+        else if (b_dp == 0 && a_dp == 0)
+        {
+            /*decix remains null*/
+        }
         else
         {
             decix = b_dp;
         }
+        results = (a - b).toFixed(decix);
     }
     if (operator == 'x')
     {
-        results = a * b;
-        decix = a_dp + b_dp;
+        if (b_dp == 0 && a_dp == 0)
+        {
+            /*decix remains null*/
+        }
+        else
+        {
+            decix = a_dp + b_dp;
+        } 
+        results = (a * b).toFixed(decix);
     }
     if (operator == '/')
     {
         results = a / b;
-        
-        /*if (b_dp > a_dp)
-        {
-            decix = b_dp - a_dp;
-        }
-        else if (b_dp < a_dp)
-        {
-            decix = a_dp - b_dp;
-        }
-        else
-        {
-            decix = b_dp;
-        }*/
-
-        decix=10;
     }
 
-    document.getElementById("calcbox2").innerHTML = results.toFixed(decix);
-    document.getElementById("operator").innerHTML = orig_op;
+    x = document.getElementById("calcbox2").innerHTML;
+    y = document.getElementById("memory").innerHTML + '' + operator + '' + x + " = ";
+
     document.getElementById("memory").innerHTML = '0';
+    document.getElementById("calcbox2").innerHTML = results;
+    document.getElementById("operator").innerHTML = orig_op;
+    document.getElementById("express").innerHTML = y;
 }
 
 function C()
@@ -134,6 +149,7 @@ function C()
     document.getElementById("calcbox2").innerHTML = '0';
     document.getElementById("operator").innerHTML = orig_op;
     document.getElementById("memory").innerHTML = '0';
+    document.getElementById("express").innerHTML = null;
     opcount(0);
 }
 
@@ -146,28 +162,33 @@ function one_over_x()
     document.getElementById("calcbox2").innerHTML = results;
     document.getElementById("operator").innerHTML = orig_op;
     document.getElementById("memory").innerHTML = '0';
+    document.getElementById("express").innerHTML = "1 / " + x + " = ";
 
     opcount();
 }
 
 function addinv()
 {
-    var x = parseFloat(document.getElementById("calcbox2").innerHTML);
-    var y = 0 - x;
-    document.getElementById("calcbox2").innerHTNL = y;
+    x = parseFloat(document.getElementById("calcbox2").innerHTML);
+    y = 0 - x;
+    document.getElementById("calcbox2").innerHTML = y;
 }
 
 function sqrt()
 {
     var x = document.getElementById("calcbox2").innerHTML;
-    document.getElementById("calcbox2").innerHTML = Math.sqrt(x);
+    var y = Math.sqrt(x);
+    document.getElementById("calcbox2").innerHTML = y;
+    document.getElementById("express").innerHTML = "&#8730 " + x + " = ";
     opcount();
 }
 
 function ln()
 {
     var x = document.getElementById("calcbox2").innerHTML;
-    document.getElementById("calcbox2").innerHTML = Math.log(x);
+    var y = Math.log(x);
+    document.getElementById("calcbox2").innerHTML = y;
+    document.getElementById("express").innerHTML = "ln (" + x + ") = ";
     opcount();
 }
 
@@ -177,9 +198,9 @@ function decimal()
     {
         document.getElementById("calcbox2").innerHTML = "0.";
     }
-    else if (Math.abs(parseFloat(document.getElementById("calcbox2").innerHTML)) > 0 && Math.abs(parseFloat(document.getElementById("calcbox2").innerHTML)) < 1)
+    else if (document.getElementById("calcbox2").innerHTML.includes('.'))
     {
-        /*do nothing since this would mean the value already has a decimal */
+        /*do nothing since this would mean the value already has a decimal*/
     }
     else
     {
@@ -189,24 +210,28 @@ function decimal()
 
 function uniKeyCode(event)
 {
-    var x = event.keyCode;
-    if ((x >= 48 && x <= 57) || (x >= 96 && x <= 105))
+    var x = event.which || event.keyCode;
+    var y = String.fromCharCode(x);
+
+    if (x >= 48 && x <= 57)
     {
-        var y = String.fromCharCode(x);
         type_in_box(y);
     }
-    if (x == 43 || x == 107 || x == 45 || x == 109 || x == 42 || x == 106 || x == 47 || x == 111)
+    if (x == 43 || x == 45 || x == 42 || x == 47)
     {
-        var y = String.fromCharCode(x);
         pressOp(y);
     }
-    if (x == 46 || x == 107 || x == 110)
+    if (x == 46)
     {
         decimal();
     }
-    if (x == 13 || x == 187)
+    if (x == 13)
     {
         equals();
+    }
+    if (x == 99)
+    {
+        C();
     }
 }
 
